@@ -48,8 +48,13 @@
                     var that = this; //closure to keep reference to current audio tag
                     $("#doc").append($('<button>'+audio.attr("title")+'</button>').click(function() {
                         that.play();
+                        document.location.hash = "#" + encodeURIComponent(audio.attr("title"));
                     }));
                 });
+                if(document.location.hash !== "") {
+                  var el = $('audio[title="' + decodeURIComponent(document.location.hash.substr(1)) + '"]');
+                  if(el.size() > 0) el[0].play();
+                }
             });
         </script>
         <?php foreach($files as $file) { ?>
