@@ -1,5 +1,5 @@
 <?php
-    $files = glob("clips/*.ogg")
+    $files = glob("clips/*.mp3")
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -58,7 +58,7 @@
             });
         </script>
         <?php foreach($files as $file) { ?>
-            <?php $title = str_replace(".ogg", "", str_replace("clips/", "", $file)); ?>
+            <?php $title = str_replace(".mp3", "", str_replace("clips/", "", $file)); ?>
             <audio src="<?php echo $file; ?>" controls autobuffer="true" title="<?php echo $title ?>"></audio>
         <?php } ?>
     </div>
